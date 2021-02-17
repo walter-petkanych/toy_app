@@ -7,7 +7,7 @@ class VotesController < ApplicationController
 
   def create
     puts(params)
-    Vote.create({user_id: params[:a], micropost_id: params[:micropost_id], vote: params[:b]})
+    Vote.create({user_id: params[:a], micropost_id: params[:micropost_id], vote: params[:b] == 'True'})
     redirect_to '/microposts'
   end
 

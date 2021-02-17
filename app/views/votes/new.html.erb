@@ -2,13 +2,16 @@
 
 <form class="new_user" id="new_user" action="/votes/create" accept-charset="UTF-8" method="post">
 <input name="utf8" type="hidden" value="&#x2713;" />
-<input type="hidden" name="authenticity_token" value="VAriexzrVjFj5l7pSmTLiR7mfeCKIg5TRWxui7gQyAHW+zuO88pdx4gP3P/gfmXufZxFVytqcR/EYqsecDBjxg==" />
+<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>" />
 
 <input type="hidden" name="micropost_id" value="<%= @micropost_id %>" />
 
   <div class="field">
     <label for="user_vote">your choise</label><br>
-    <input type="text" name="b" id="user_vote" />
+    <select type="text" name="b" id="user_vote">
+        <option>True</option>
+        <option>False</option>
+    </select>
   </div>
 
   <div class="field">
@@ -23,4 +26,4 @@
 
 </form>
 
-<a href="/users">Back</a>
+<a href="/microposts">Back</a>
