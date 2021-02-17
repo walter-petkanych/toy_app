@@ -1,1 +1,26 @@
-<h1>ksjlksjfls</h1>
+<h1>Please, enter your choise</h1>
+
+<form class="new_user" id="new_user" action="/votes/create" accept-charset="UTF-8" method="post">
+<input name="utf8" type="hidden" value="&#x2713;" />
+<input type="hidden" name="authenticity_token" value="VAriexzrVjFj5l7pSmTLiR7mfeCKIg5TRWxui7gQyAHW+zuO88pdx4gP3P/gfmXufZxFVytqcR/EYqsecDBjxg==" />
+
+<input type="hidden" name="micropost_id" value="<%= @micropost_id %>" />
+
+  <div class="field">
+    <label for="user_vote">your choise</label><br>
+    <input type="text" name="b" id="user_vote" />
+  </div>
+
+  <div class="field">
+    <label for="user_id">user id</label><br>
+    <input type="text" name="a" id="user_id" />
+  </div>
+
+
+  <div class="actions">
+    <input type="submit" name="commit" value="Create Vote" />
+  </div>
+
+</form>
+
+<a href="/users">Back</a>
