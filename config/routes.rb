@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
   resources :microposts
-  get "votes/new", to: "votes#new"
-  post "votes/create", to: "votes#create"
+  scope :votes do #scope обєднує та автоматично додає votes в url адресу до всіх методів в цьому блоці
+    get "new", to: "votes#new"
+    post "/", to: "votes#create", as: "votes"
+  end
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

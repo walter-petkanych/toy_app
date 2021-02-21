@@ -1,29 +1,22 @@
 <h1>Please, enter your choise</h1>
 
-<form class="new_user" id="new_user" action="/votes/create" accept-charset="UTF-8" method="post">
-<input name="utf8" type="hidden" value="&#x2713;" />
-<input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>" />
-
-<input type="hidden" name="micropost_id" value="<%= @micropost_id %>" />
+<%= form_for(@vote) do |f| %>
 
   <div class="field">
-    <label for="user_vote">your choise</label><br>
-    <select type="text" name="b" id="user_vote">
-        <option>True</option>
-        <option>False</option>
-    </select>
+    <%= f.label :vote, "Select if you like this post" %>
+    <%= f.check_box :vote %>
   </div>
 
   <div class="field">
-    <label for="user_id">user id</label><br>
-    <input type="text" name="a" id="user_id" />
+    <%= f.number_field :user_id %><br>
   </div>
 
-
+  <%= f.hidden_field :micropost_id, value: @micropost_id %><br>
+  
   <div class="actions">
-    <input type="submit" name="commit" value="Create Vote" />
-  </div>
+    <%= f.submit %>
+  </div> 
 
-</form>
+<% end %>
 
 <a href="/microposts">Back</a>

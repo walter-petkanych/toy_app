@@ -18,10 +18,14 @@
       <tr>
         <td><%= micropost.content %></td>
         <td><%= micropost.user_id %></td>
-        <td> <a href="/votes/new?micropost_id=<%= micropost.id %>"><%= micropost.votes.where(vote:true).count %></a></td>
-        <td> <a href="/votes/new?micropost_id=<%= micropost.id %>"><%= micropost.votes.where(vote:false).count
+        <%
+=begin%>
+ path автоматично приймає url заданий в файлі роутс 
+<%
+=end%>
+        <td> <a href="<%= new_path(micropost.id) %>"><%= micropost.votes.where(vote:true).count %></a></td>
+        <td> <a href="<%= new_path(micropost.id) %>"><%= micropost.votes.where(vote:false).count
  %></a></td>
-        
         <td><%= link_to 'Show', micropost %></td>
         <td><%= link_to 'Edit', edit_micropost_path(micropost) %></td>
         <td><%= link_to 'Destroy', micropost, method: :delete, data: { confirm: 'Are you sure?' } %></td>
